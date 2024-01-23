@@ -13,11 +13,11 @@ class CreateWorkingTimeTable extends Migration
      */
     public function up()
     {
-        Schema::create('working_time', function (Blueprint $table) {
+        Schema::create('working_times', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id')->unique();
-            $table->timestamps('working_start');
-            $table->timestamps('working_end');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->timestamp('working_start');
+            $table->timestamp('working_end');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateWorkingTimeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('working_time');
+        Schema::dropIfExists('working_times');
     }
 }

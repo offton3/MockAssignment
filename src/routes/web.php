@@ -14,6 +14,5 @@ use App\Http\Controllers\WorkingTimeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/date', [WorkingTimeController::class, 'view']);
+
