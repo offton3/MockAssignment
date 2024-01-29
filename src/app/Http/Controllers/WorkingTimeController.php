@@ -12,9 +12,9 @@ class WorkingTimeController extends Controller
     public function view(){
 
         $users = User::all();
-        $breaking_times = breaking_time::all();
-        $working_times = working_time::all();
+//        $breaking_times = breaking_time::all();
+//        $working_times = working_time::all();
 
-        return view('userWarkingTime', compact('users','breaking_times','working_times'));
+        return view('userWorkingTime', compact('users'));
     }
 }

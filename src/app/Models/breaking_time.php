@@ -18,4 +18,16 @@ class breaking_time extends Model
     public function working_time(){
         return $this->belongsTo(working_time::class);
     }
+
+    public function getWorkingTimeId(){
+        return $this->working_time_id;
+    }
+
+    public function getBreakingStart(){
+        return $this->breaking_start;
+    }
+
+    public function getBreakingEnd(){
+        return $this->breaking_end;
+    }
 }
