@@ -17,27 +17,37 @@
       @foreach ($users as $user)
       <tr>
         <p>{{ $user->getName() }}</p>
-          @foreach ($user->getWorkingTime as $WT)
+      </tr>
+      
+        @foreach ($user->getWorkingTime as $WT)
+        <tr>
+          <td>
+            <p>W: {{ $WT->getWorkingStart() }} :</p>
+          </td>
+          <td>
+            <p>{{ $WT->getWorkingEnd() }}</p>
+          </td>
+          <td>
+            <p>勤務時間:{{ $WT->getWorkingTime() }}</p>
+          </td>
+          
+        </tr>
+          @foreach ($WT->getBreakTime as $BT)
           <tr>
             <td>
-              <p>W: {{ $WT->getWorkingStart() }} :</p>
+              <p>B: {{ $BT->getBreakingStart() }} :</p>
             </td>
             <td>
-              <p>{{ $WT->getWorkingEnd() }}</p>
+              <p>{{ $BT->getBreakingEnd() }}</p>
             </td>
-            @foreach ($WT->getBreakTime as $BT)
-            <tr>
-              <td>
-                <p>B: {{ $BT->getBreakingStart() }} :</p>
-              </td>
-              <td>
-                <p>{{ $BT->getBreakingEnd() }}</p>
-              </td>
-            </tr>
-            @endforeach
           </tr>
           @endforeach
-      </tr>
+        
+        @endforeach
+      
+        <form class="form" action="/Registration" method="post">
+        @csrf
+
       @endforeach
 
 
